@@ -1,0 +1,75 @@
+<section>
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <aside class="bg-light border shadow-sm rounded-25 px-3 py-5 d-flex flex-column gap-3 text-center">
+                    <i class="bi bi-person-circle fs-1 text-100"></i>
+                    <h3 class="sand fw-bold">Book IN</h3>
+                    <hr>
+                    <div class="d-flex flex-column gap-4">
+
+                        <div class="d-flex gap-3 align-items-center flex-wrap">
+                            <span style="width: 200px;" class="text-start">Select Service</span>
+                            <select @change="selectService" v-model="store.bookInForm.serviceName" class="form-select">
+                                <option v-for="node in store.userProfile.gymServices" :key="node.id" :value="node.title">{{node.title}}</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex gap-3 align-items-center flex-wrap">
+                            <span style="width: 200px;" class="text-start">Select Date</span>
+                            <select v-model="store.bookInDate" class="form-select">
+                                <option v-for="node in getCalendarDays()" :value="node">{{node.fullDate}}</option>
+                            </select>
+                        </div>
+                        
+                        <div class="d-flex gap-3 align-items-center flex-wrap" v-if="store.bookInDate.name">
+                            <span style="width: 200px;" class="text-start">Starting Time ( HR - MIN )</span>
+                            <div class="w-100 d-flex gap-3 align-items-center">
+                                <select v-model="selectedHour" class="form-select w-100">
+                                    <option v-for="node in getStartingHours()" :value="node">{{node.hour}} {{node.format}}</option>
+                                </select>
+                                <select v-model="selectedMin" class="form-select w-100">
+                                    <option v-for="node in getStartingMinuts" :key="node" :value="node">{{node}}</option>
+                                    <!-- <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option> -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- {{getStartingMinuts()}} -->
+
+                        <div class="d-flex gap-3 align-items-center flex-wrap" v-if="store.bookInDate.name">
+                            <span style="width: 200px;" class="text-start">Duration {{selectedDuration}} MIN</span>
+                            <input v-model="selectedDuration" :min="store.selectedService.durations.split('-')[0]" :max="store.selectedService.durations.split('-')[1]" step="5" type="range" class="form-range border rounded-pill">
+                        </div>
+
+                    </div>
+
+                    <b class="fs-small text-danger" v-show="!validation().exception">{{validation().message}}</b>
+                    
+                    <button v-if="spinner" class="btn btn-danger my-3">
+                        <span class="spinner-grow spinner-grow-sm"></span>
+                    </button>
+
+                    <button v-if="!spinner" :disabled="!validation().status" @click="bookIn" class="btn btn-danger my-3">
+                        <span >Book IN</span>
+                    </button>
+
+                    {{bookInPayload}}
+
+                    <i @click="store.closeTab()" style="width: fit-content !important;" class="bi bi-arrow-return-left text-100 fs-3 mt-3 mx-auto"></i>
+                
+                </aside>
+            </div>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,25 @@
+<section class="w-100 h-100 bg-200-grad position-fixed z-3 top-0 start-0 d-flex justify-content-center align-items-center">
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-5">
+                <aside class="bg-light rounded-25 px-3 py-5 d-flex flex-column align-items-center gap-4">
+                    <img src="/logo.png" alt="logo" class="object-fit-cover rounded-circle shadow-sm" width="100">
+                    <div class="w-100 d-flex flex-column gap-2 text-center">
+                        <h1 class="sand fs-3 ">Femathletic Fitness Center</h1>
+                        <p class="slab text-secondary fs-small ls-1 text-uppercase">Be the best version of yourself</p>
+                    </div>
+                    <div class="w-100 d-flex flex-column gap-2">
+                        <input v-model="store.user.email" type="text" placeholder="Email" class="form-control">
+                        <input v-model="store.user.password" type="password" placeholder="Password" class="form-control">
+                        <button @click="login" class="btn btn-danger">
+                            <span v-if="spinner" class="spinner-grow spinner-grow-sm"></span>
+                            <span v-else >Login</span>
+                        </button>
+                    </div>
+                    <p class="fs-x-small text-secondary pop text-center">Developed by Lebancode - Version 1.0</p>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+</section>

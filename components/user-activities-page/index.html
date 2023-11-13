@@ -1,0 +1,80 @@
+<section class="container">
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="my-3 d-flex flex-column gap-2">
+                <h1 class="fs-1 sand text-center">My Recent Activities</h1>
+                <!-- <p class="text-secondary pop">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, repudiandae?</p> -->
+            </div>
+        </div>
+        <div class="col-12 col-lg-8" v-for="node in store.userProfile.enrolledActivities" :key="node.id">
+            <section class="d-flex flex-column gap-3 align-items-center bg-light rounded shadow p-3">
+                <div class="w-100 d-flex gap-3 justify-content-between align-items-center">
+                    <h3 class="text-100 slab">{{node.serviceName}}</h3>
+                    <div v-if="isNotOldDate(node.startDate)" class="d-flex gap-3 align-items-center">
+
+                        <div class="">
+                            <span class="material-symbols-outlined text-secondary" role="button" style="font-size: 24px;" data-bs-toggle="modal" :data-bs-target="'#rebook-' + node.id">
+                                event_repeat
+                            </span>
+                            <!-- Modal -->
+                            <div class="modal fade" :id="'rebook-' + node.id">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5 pop">Ana ra7 et2a5ar shway</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body d-flex flex-wrap gap-3">
+                                            <label>Minutes: {{store.reBookIn.shift}}</label>
+                                            <input type="range" v-model="store.reBookIn.shift" min="10" max="360" step="10" class="form-range">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success">Re-Schedule</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <span class="material-symbols-outlined text-secondary" role="button" style="font-size: 24px;" data-bs-toggle="modal" :data-bs-target="'#cancel-' + node.id">
+                                event_busy
+                            </span>
+                            <!-- Modal -->
+                            <div class="modal fade" :id="'cancel-' + node.id">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5 pop">Ana ma ader eje</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam consequatur praesentium corporis, neque nesciunt hic.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-danger">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div
+                    class="w-100 d-flex gap-2 align-items-center justify-content-start fs-x-small ls-1 slab border-top pt-3">
+                    <span>{{utilities.enhanceDate(node.startDate)}}</span>
+                    <i class="bi bi-chevron-double-right text-100"></i>
+                    <span>{{utilities.enhanceDate(node.endDate)}}</span>
+                </div>
+            </section>
+        </div>
+        <i @click="store.closeTab()" class="bi bi-arrow-return-left text-100 fs-3 mt-3 text-center"></i>
+    </div>
+</section>

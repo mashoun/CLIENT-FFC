@@ -1,0 +1,43 @@
+<section class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <section class="container">
+        <div class="row justify-content-between align-items-center g-4">
+            <div class="col-12 col-lg-6 order-2 order-lg-1">
+                <aside class="d-flex gap-3 flex-column">
+                    <h1 class="text-uppercase sand display-5">Be the <span class="text-danger">best version</span> of your
+                        self</h1>
+                    <p class="text-secondary pop">{{store.public.about.bio}}</p>
+                    <a href="/signup/" class="btn-fill w-fit slab ls-1 px-4 py-2">Get Started</a>
+    
+                </aside>
+            </div>
+            <div class="col-12 col-lg-6 order-1 order-lg-2" style="overflow: hidden !important;">
+                <section class="p-3 p-lg-5">
+
+                    <!-- <aside class="ratio ratio-4x3">
+                        <img src="/imgs/hero-main-thumbnail.jpg" alt="hero" class="object-fit-cover rounded">
+
+                        <img src="https://picsum.photos/1920/1080" alt="hero" class="object-fit-cover rounded">
+                    </aside> -->
+                    <!-- <div class="swiper" id="user-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" v-for="node in store.public.stories" :key="node.id">
+                                <aside class="ratio ratio-16x9">
+                                    <img :src="node.thumbnail" :alt="node.id" class="object-fit-cover rounded">
+                                </aside>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination position-static my-3"></div>
+                    </div> -->
+                    <swiper-container v-if="!store.loading" effect="cards">
+                        <swiper-slide v-for="node in store.public.stories" :key="node.id">
+                            <aside class="ratio ratio-16x9">
+                                <img :src="node.thumbnail" :alt="node.id" class="object-fit-cover rounded">
+                            </aside>
+                        </swiper-slide>
+                    </swiper-container>
+
+                </section>
+            </div>
+        </div>
+    </section>
+</section>

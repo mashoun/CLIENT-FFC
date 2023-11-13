@@ -1,0 +1,38 @@
+<section class="d-flex justify-content-center align-items-center p-4 bg-200-grad" style="min-height: 80vh;">
+    <section class="container">
+        <div class="row g-4 justify-content-center">
+            <div class="col-12">
+                <div class="my-3 d-flex flex-column gap-2">
+                    <h1 class="display-5 sand">Our services</h1>
+                    <p class="text-secondary pop">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos
+                        accusamus
+                        nesciunt dignissimos. Aliquid, impedit suscipit?</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4" v-for="node in store.public.services" :key="node.id">
+                <section class="d-flex gap-3 align-items-center bg-light rounded-25 shadow p-3" data-bs-toggle="modal" :data-bs-target="'#'+node.id">
+                    <span class="material-symbols-outlined text-danger" style="font-size: 40px;">done</span>
+                    <div class="d-flex flex-column gap-2">
+                        <h5 class="sand fs-5 fw-bold text-fade-2" style="min-height:50px ;">{{node.title}}</h5>
+                        <p class="pop fs-smaller text-secondary text-fade-3" style="min-height: 60px;" >{{node.description}}</p>
+                    </div>
+                </section>
+                <!-- Modal -->
+                <div class="modal fade" :id="node.id">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5">{{node.title}}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="pop fs-smaller text-secondary">{{node.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,25 @@
+.skeleton {
+
+    -webkit-animation: skeleton 0.5s linear infinite alternate both;
+    animation: skeleton 0.5s linear infinite alternate both;
+}
+
+@-webkit-keyframes skeleton {
+    0% {
+        background: #dee2e6a4;
+    }
+
+    100% {
+        background: #c1c7cd;
+    }
+}
+
+@keyframes skeleton {
+    0% {
+        background: #dee2e6a4;
+    }
+
+    100% {
+        background: #c1c7cd;
+    }
+}

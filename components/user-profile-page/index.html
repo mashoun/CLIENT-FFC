@@ -1,0 +1,26 @@
+<section>
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <aside class="bg-light border shadow-sm rounded-25 px-3 py-5 d-flex flex-column gap-3 text-center">
+                    <i class="bi bi-person-circle fs-1 text-100"></i>
+                    <h3 class="sand fw-bold">My Profile</h3>
+                    <!-- <p class="pop text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit cupiditate harum error, aspernatur perferendis eum?</p> -->
+                    <hr>
+                    <div class="d-flex flex-column gap-2">
+                        <h5 class="text-secondary pop">{{store.userProfile.personalInfo.firstName}} {{store.userProfile.personalInfo.lastName}}</h5>
+                        <h5 class="text-secondary pop">{{store.userProfile.personalInfo.email}}</h5>
+                        <h5 class="text-secondary pop">{{store.userProfile.personalInfo.number}}</h5>
+                        <hr>
+                        <h5 class="text-secondary slab fw-bold">Credits: {{store.userProfile.wallet}} USD</h5>
+                        <h5 class="text-secondary slab" v-show="store.userProfile.monthlyPackExpiration != ''">Expiration: {{utilities.enhanceDate(store.userProfile.monthlyPackExpiration)}}</h5>
+                        
+                    </div>
+                    <!-- <button class="btn btn-outline-secondary slab">Back</button> -->
+                    <i @click="store.closeTab()" class="bi bi-arrow-return-left text-100 fs-3 mt-3"></i>
+                
+                </aside>
+            </div>
+        </div>
+    </section>
+</section>

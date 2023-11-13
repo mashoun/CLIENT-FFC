@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FFC</title>
+
+    <!-- META -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body id="app">
+
+    <navbar></navbar>
+    <main class="py-4 bg-200-grad">
+        <section>
+            <section class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-8">
+                        <aside class="bg-light border shadow-sm rounded-25 px-3 py-5 d-flex flex-column gap-3 text-center">
+                            <h3 class="sand fw-bold">Create New Account</h3>
+                            <p class="pop text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit cupiditate harum error, aspernatur perferendis eum?</p>
+                          
+                            <div class="d-flex flex-column gap-2">
+                                <input v-model="store.signup.firstName"  type="text" placeholder="First name" class="form-control">
+                                <input v-model="store.signup.lastName"  type="text" placeholder="Last name" class="form-control">
+                                <input v-model="store.signup.number"  type="text" placeholder="Phone number" class="form-control">
+                                <input v-model="store.signup.email"  type="text" placeholder="Email" class="form-control">
+                                <input v-model="store.signup.password"  type="text" placeholder="Password" class="form-control">
+                                <!-- <input v-model="store.signup.firstName"  type="date" class="form-control"> -->
+                                <img v-if="store.signup.idnFront[0].src64 != ''" :src="store.signup.idnFront[0].src64" alt="front" width="50" class="object-fit-cover">
+                                <span class="form-control text-start" @click="uploadFileToStore('idnFront')" role="button">Upload your Front ID Image</span>
+                                
+                                
+                                <img v-if="store.signup.idnBack[0].src64 != ''" :src="store.signup.idnBack[0].src64" alt="front" width="50" class="object-fit-cover">
+                                <span class="form-control text-start" @click="uploadFileToStore('idnBack')"  role="button">Upload your Back ID Image</span>
+                                
+                            </div>
+                            <button v-show="!spinner" :disabled="!validateSignup()" @click="signup" class="btn btn-outline-danger slab">
+                                <!-- <span v-if="spinner" class="spinner-grow spinner-grow-sm"></span> -->
+                                <span>Submit</span>
+                            </button>
+
+                            <button v-if="spinner" :disabled="spinner" class="btn btn-outline-danger slab">
+                                <span class="spinner-grow spinner-grow-sm"></span>
+                            </button>
+                        
+                        </aside>
+
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer class="bg-light border-top">
+        <footer-section></footer-section>
+    </footer>
+
+
+
+    <!-- JS -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script> -->
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/app.js" type="module"></script>
+
+</body>
+
+</html>

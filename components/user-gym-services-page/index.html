@@ -1,0 +1,20 @@
+<section class="container">
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="my-3 d-flex flex-column gap-2">
+                <h1 class="fs-1 sand text-center">Our Classes</h1>
+                <!-- <p class="text-secondary pop">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, repudiandae?</p> -->
+            </div>
+        </div>
+        <div class="col-12 col-lg-8"  v-for="node in store.userProfile.gymServices" :key="node.id" >
+            <section class="d-flex flex-column gap-3 align-items-center bg-light rounded shadow p-3">
+                <h3 class="text-100 slab fs-4">{{node.title}} - {{node.cost}} $</h3>
+                <div class="w-100 d-flex gap-2 align-items-center justify-content-center text-center fs-x-small ls-1 slab border-top pt-3 flex-wrap">
+                    <span style="width: 200px;" class="px-3 py-1 border rounded-pill" v-for="pode in node.availability.split(',')">{{pode}}</span>
+                </div>
+                <!-- <button class="btn btn-sm btn-danger slab rounded-pill">Book IN</button> -->
+            </section>
+        </div>
+        <i @click="store.closeTab()" class="bi bi-arrow-return-left text-100 fs-3 mt-3 text-center"></i>
+    </div>
+</section>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FFC</title>
+
+    <!-- META -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+
+</head>
+
+<body id="app">
+
+
+    <navbar></navbar>
+    <main class="py-4" style="gap: 10rem;">
+        <services-section></services-section>
+    </main>
+    <footer class="bg-light border-top">
+        <footer-section></footer-section>
+    </footer>
+
+    <!-- spinner -->
+    <section v-if="spinner" class="w-100 h-100 position-fixed z-3 top-0 start-0 d-flex justify-content-center align-items-center bg-glass">
+        <span class="spinner-grow spinner-grow-sm text-danger"></span>
+    </section>
+
+
+
+    <!-- JS -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script> -->
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/app.js" type="module"></script>
+    
+
+</body>
+
+</html>

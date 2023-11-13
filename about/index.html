@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FFC</title>
+
+    <!-- META -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+
+</head>
+
+<body id="app">
+
+
+    <navbar></navbar>
+    <main class="py-4" style="gap: 10rem;">
+        <section class="container">
+            <div class="row justify-content-between g-4">
+                <div class="col-12">
+                    <aside class="d-flex flex-column gap-2 text-center">
+                        <h1 class="display-5 sand">About Us</h1>
+                        <p class="text-secondary pop">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos accusamus
+                            nesciunt dignissimos. Aliquid, impedit suscipit?</p>
+                    </aside>
+                </div>
+
+                <hr class="my-5">
+                <div class="col-12 col-lg-6">
+                    <aside class="d-flex gap-3 flex-column">
+                        <h1 class="text-uppercase sand fs-3">{{store.public.about.about1}}</h1>
+                        <p class="text-secondary pop">{{store.public.about.about2}}</p>
+                    </aside>
+                </div>
+                <div class="col-12 col-lg-5">
+                    <aside class="ratio ratio-16x9">
+                        <img src="https://picsum.photos/1920/1080" alt="hero" class="object-fit-cover rounded">
+                    </aside>
+                </div>
+
+                <hr class="my-5">
+                <div class="col-12 col-lg-5">
+                    <aside class="ratio ratio-16x9">
+                        <img src="https://picsum.photos/1920/1080" alt="hero" class="object-fit-cover rounded">
+                    </aside>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <aside class="d-flex gap-3 flex-column">
+                        <h1 class="text-uppercase sand fs-3">{{store.public.about.about3}}</h1>
+                        <p class="text-secondary pop">{{store.public.about.about4}}</p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-light border-top">
+        <footer-section></footer-section>
+    </footer>
+
+    <!-- spinner -->
+    <section v-if="spinner" class="w-100 h-100 position-fixed z-3 top-0 start-0 d-flex justify-content-center align-items-center bg-glass">
+        <span class="spinner-grow spinner-grow-sm text-danger"></span>
+    </section>
+
+
+
+    <!-- JS -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script> -->
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/app.js" type="module"></script>
+    
+
+</body>
+
+</html>

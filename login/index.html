@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FFC</title>
+
+    <!-- META -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body id="app">
+
+    <login-page v-if="!store.isLogedIn"></login-page>
+
+    <header v-if="store.isLogedIn" class="w-100 p-3 d-flex justify-content-between align-items-center bg-light shadow-sm">
+        <section class="d-flex gap-3 align-items-center">
+            <img src="/logo.png" alt="logo" width="40" class="rounded-circle border object-fit-cover">
+            <h5 class="sand fs-5">Femathletic Fitness Club</h5>
+        </section>
+        <aside>
+            <i class="bi bi-three-dots-vertical text-danger fs-4" data-bs-toggle="dropdown"></i>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">About us</a></li>
+                <li><a class="dropdown-item" href="#">Contact</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+        </aside>
+    </header>
+    <main v-show="!store.showActiveTab && store.isLogedIn" class="pb-5 pt-3 bg-200-grad">
+        <section class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <section class="">
+                        <swiper-container navigation="true" space-between="10" :autoplay="{delay:2000}">
+                            <swiper-slide v-for="node in store.public.stories" :key="node.id">
+                                <aside class="ratio ratio-16x9">
+                                    <img :src="node.thumbnail" :alt="node.id" class="object-fit-cover rounded">
+                                </aside>
+                            </swiper-slide>
+                        </swiper-container>
+                    </section>
+                </div>
+            </div>
+            <hr class="container my-4">
+            <div class="row g-4 justify-content-center">
+                <div class="col-12 col-lg-4">
+                    <section @click="activateTab('user-profile-page')" role="button" class="p-3 bg-light shadow-sm rounded-25 d-flex flex-column gap-2 align-items-center">
+                        <i class="bi bi-person-gear fs-1 text-danger"></i>
+                        <h5 class="pop fs-6"><span>My Profile</span> - <span class="arb">ملفي الشخصي</span></h5>
+                    </section>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <section @click="activateTab('user-activities-page')" role="button"  class="p-3 bg-light shadow-sm rounded-25 d-flex flex-column gap-2 align-items-center text-center">
+                        <i class="bi bi-clock-history fs-1 text-danger"></i>
+                        <h5 class="pop fs-6"><span>Recent Activities</span> - <span class="arb">سجل نشاطي</span></h5>
+                    </section>
+                </div>
+            </div>
+            
+            <div class="mt-2 row g-4 justify-content-center">
+                <div class="col-12 col-lg-4">
+                    <section @click="activateTab('user-receipts-page')" role="button"  class="p-3 bg-light shadow-sm rounded-25 d-flex flex-column gap-2 align-items-center">
+                        <i class="bi bi-receipt-cutoff fs-1 text-danger"></i>
+                        <h5 class="pop fs-6"><span>Receipts</span> - <span class="arb">إيصالات</span></h5>
+                    </section>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <section @click="activateTab('user-notifications-page')"  role="button" class="p-3 bg-light shadow-sm rounded-25 d-flex flex-column gap-2 align-items-center text-center">
+                        <i class="bi bi-bell fs-1 text-danger"></i>
+                        <h5 class="pop fs-6"><span>Announcements</span> - <span class="arb">إشعارات</span></h5>
+                    </section>
+                </div>
+            </div>
+            
+            <div class="mt-2 row g-4 justify-content-center">  
+                
+                <div class="col-12 col-lg-4">
+                    <section @click="activateTab('user-gym-services-page')"  role="button" class="p-3 bg-light shadow-sm rounded-25 d-flex flex-column gap-2 align-items-center text-center">
+                        <i class="bi bi-universal-access-circle fs-1 text-danger"></i>
+                        <h5 class="pop fs-6"><span>Our Classes</span> - <span class="arb">خدماتنا</span></h5>
+                    </section>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <section @click="activateTab('user-bookin-page')"  role="button" class="p-3 bg-100 shadow-sm rounded-25 d-flex flex-column gap-2 align-items-center text-center">
+                        <i class="bi bi-calendar-check fs-1 text-light"></i>
+                        <h5 class="pop fs-6 text-light"><span>Book IN</span> - <span class="arb">احجز الآن</span></h5>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section v-if="store.showActiveTab && store.isLogedIn" class="py-5 bg-200-grad" style="min-height: 700px;">
+        <component :is="store.activeTab"></component>
+    </section>
+    <footer v-if="store.isLogedIn" class="py-5 bg-dark text-light">
+        <p class="fs-x-small text-secondary pop text-center">Developed by Lebancode - Version 1.0</p>
+    </footer>
+
+
+
+    <!-- JS -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/app.js" type="module"></script>
+
+</body>
+
+</html>

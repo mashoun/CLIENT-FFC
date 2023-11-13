@@ -1,0 +1,23 @@
+<section class="container">
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="my-3 d-flex flex-column gap-2">
+                <h1 class="fs-1 sand text-center">My Receipts</h1>
+                <!-- <p class="text-secondary pop">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, repudiandae?</p> -->
+            </div>
+        </div>
+        <div class="col-12 col-lg-8"  v-for="node in store.userProfile.receipts" :key="node.id" >
+            <section class="d-flex flex-column gap-3 align-items-center bg-light rounded shadow p-3">
+                <div class="d-flex gap-2 align-items-center fs-small">
+                    <i class="bi bi-clock text-100"></i>
+                    <span class="">{{utilities.enhanceDate(node.timestamp)}}</span>
+                </div>
+                <h3 class="text-100 slab">{{node.type}}: {{node.amount}} USD</h3>
+                
+                <p class="text-secondary pop fs-small">{{node.note}}</p>
+
+            </section>
+        </div>
+        <i @click="store.closeTab()" class="bi bi-arrow-return-left text-100 fs-3 mt-3 text-center"></i>
+    </div>
+</section>

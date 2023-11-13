@@ -1,0 +1,23 @@
+<section class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <section class="container">
+        <div class="row justify-content-between align-items-center g-4 py-5">
+            <div class="col-12 col-lg-5">
+                <aside class="ratio ratio-1x1"><img src="https://picsum.photos/1080" alt="thumbnail" class="object-fit-cover rounded"></aside>
+            </div>
+            <div class="col-12 col-lg-6">
+                <aside class="d-flex flex-column gap-2">
+                    <h1 class="display-5 sand">Why Choose Us</h1>
+                    <p class="text-secondary pop">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos accusamus
+                        nesciunt dignissimos. Aliquid, impedit suscipit?</p>
+                </aside>
+                <section class="d-flex flex-column gap-3 mt-5">
+                    <div v-for="node in store.public.whyChooseUs.slice(0,3)" :key="node.id" class="p-3 bg-light shadow-sm border rounded-25 align-items-center d-flex gap-3">
+                        <span class="material-symbols-outlined text-danger p-3 bg-light rounded-circle border border-danger" style="font-size: 40px;">approval_delegation</span>
+                        <p class="pop text-fade-3">{{node.note}}</p>
+                    </div>
+                    <!-- <p class="text-center text-danger"><a href="/about">show more -></a></p> -->
+                </section>
+            </div>            
+        </div>
+    </section>
+</section>
