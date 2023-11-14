@@ -6,6 +6,7 @@ export default {
         return {
             store,
             utilities,
+            spinner: false
 
         }
     },
@@ -15,6 +16,68 @@ export default {
                 return true
             }
             return false
+        },
+        reBookIn(id) {
+            if (confirm('Are you sure?')) {
+                this.spinner = true
+                fetch(this.store.getUserApi() + '?reBookIn=1', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "text/plain"
+                    },
+                    body: JSON.stringify({
+
+                        user: this.store.user,
+                        reBookIn: {
+                            activityId: id,
+                            email: this.store.user.email,
+                            shift: this.store.reBookIn.shift
+                        }
+
+                    })
+                })
+                    .then(res => res.json())
+                    .then(res => {
+                        console.log(res);
+                        this.spinner = false
+
+                    })
+                    .catch(err => {
+                        alert(err)
+                        this.spinner = false
+                    })
+            }
+
+        },
+        bookOut(id) {
+            if (confirm('Are you sure?')) {
+                this.spinner = true
+                fetch(this.store.getUserApi() + '?bookOut=1', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "text/plain"
+                    },
+                    body: JSON.stringify({
+
+                        user: this.store.user,
+                        bookOut: {
+                            id,
+                            email: this.store.user.email,
+                        }
+
+                    })
+                })
+                    .then(res => res.json())
+                    .then(res => {
+                        console.log(res);
+                        this.spinner = false
+
+                    })
+                    .catch(err => {
+                        alert(err)
+                        this.spinner = false
+                    })
+            }
         }
     }
 }

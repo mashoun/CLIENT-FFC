@@ -170,7 +170,7 @@ export default {
 
 
     getUserApi() {
-        return 'https://script.google.com/macros/s/AKfycbxm5rAPveuMEG1QmcIVaunOvqPmx7Q8HmzHh0cUS2oqsVkqIXGFEVxLMcPtnhoUbfwH/exec'
+        return 'https://script.google.com/macros/s/AKfycbwbckyC-A15q4etW1J1NoGhCx7Aa2gSRgtxDfUVbDsb5ANiVOfjA0g4fgBmf6WuXN3e/exec'
     },
     getPublicApi() {
         return 'https://script.google.com/macros/s/AKfycbyVk0TY1GlOwa9omJ6x3c3mqtw0Me1nGL5enxWoN9T5TIVT2hU1ELG410Aiz9FlE3YZ/exec'
