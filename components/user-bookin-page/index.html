@@ -22,7 +22,7 @@
                             </select>
                         </div>
                         
-                        <div class="d-flex gap-3 align-items-center flex-wrap" v-if="store.bookInDate.name">
+                        <div class="d-flex gap-3 align-items-center flex-wrap" v-if="store.bookInDate.name && getStartingHours().length != 0">
                             <span style="width: 200px;" class="text-start">Starting Time ( HR - MIN )</span>
                             <div class="w-100 d-flex gap-3 align-items-center">
                                 <select v-model="selectedHour" class="form-select w-100">
@@ -45,9 +45,7 @@
                             </div>
                         </div>
 
-                        <!-- {{getStartingMinuts()}} -->
-
-                        <div class="d-flex gap-3 align-items-center flex-wrap" v-if="store.bookInDate.name">
+                        <div class="d-flex gap-3 align-items-center flex-wrap" v-if="store.bookInDate.name && getStartingHours().length != 0">
                             <span style="width: 200px;" class="text-start">Duration {{selectedDuration}} MIN</span>
                             <input v-model="selectedDuration" :min="store.selectedService.durations.split('-')[0]" :max="store.selectedService.durations.split('-')[1]" step="5" type="range" class="form-range border rounded-pill">
                         </div>
@@ -64,7 +62,6 @@
                         <span >Book IN</span>
                     </button>
 
-                    {{bookInPayload}}
 
                     <i @click="store.closeTab()" style="width: fit-content !important;" class="bi bi-arrow-return-left text-100 fs-3 mt-3 mx-auto"></i>
                 
