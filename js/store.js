@@ -2,6 +2,7 @@ export default {
     activeTab: 'user-profile-page',
     showActiveTab: false,
     loading: true,
+    version: '2.1',
 
     signup: {
         firstName: '',
